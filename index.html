@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="login-screen active" aria-label="Login screen">
+        <div class="desktop-shell">
+          <main class="login-layout">
+            <section class="photo-panel" aria-label="Campus photo panel"></section>
+
+            <section class="login-panel" aria-label="Login form panel">
+              <header class="brand-header">
+                <div class="crest" aria-label="LPU emblem" role="img"></div>
+                <div class="brand-label">Lyceum of the Philippines University Manila</div>
+              </header>
+
+              <div class="login-card">
+                <h1>Let's Get Started</h1>
+                <p class="login-subtitle">Sign in to our ERP</p>
+
+                <form class="login-form">
+                  <label class="field-group">
+                    <span class="field-label">Username / Email</span>
+                    <div class="input-box">
+                      <span class="input-icon" aria-hidden="true">👤</span>
+                      <input type="text" placeholder="Enter Username" aria-label="Username or email" />
+                    </div>
+                  </label>
+
+                  <label class="field-group">
+                    <div class="field-header">
+                      <span class="field-label">Password/OTP</span>
+                      <a href="#">Trouble in Login?</a>
+                    </div>
+                    <div class="input-box">
+                      <span class="input-icon" aria-hidden="true">🔒</span>
+                      <input type="password" placeholder="Enter Password" aria-label="Password or OTP" />
+                    </div>
+                  </label>
+
+                  <div class="captcha-row">
+                    <label class="human-check">
+                      <input type="checkbox" />
+                      <span>Verify you are human</span>
+                    </label>
+
+                    <div class="captcha-box" aria-label="Captcha verification">
+                      <span class="captcha-mark">☁</span>
+                      <span class="captcha-text">CLOUDFLARE</span>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="sign-in">SIGN IN</button>
+                </form>
+              </div>
+            </section>
+          </main>
+
+          <footer class="system-bar">
+            <div class="system-left">
+              <span class="system-icon">◦</span>
+              <span class="system-icon">◉</span>
+              <span class="system-icon">✦</span>
+            </div>
+            <div class="system-right">
+              <span>ENG</span>
+              <span>US</span>
+              <span>10:33 PM</span>
+              <span>9/24/2026</span>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="dashboard-screen" aria-label="Dashboard home screen">
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="mini-crest" aria-label="LPU crest"></div>
+            <span class="brand-name">LPUManila</span>
+          </div>
+
+          <div class="topbar-right">
+            <div class="user-icon-wrap">
+              <span class="user-icon">🗔</span>
+            </div>
+            <div class="user-info">
+              <div class="user-name">CURT VINZENT ALACAPA BERNAL</div>
+              <div class="user-id">2024-01-1619</div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-dashboard">
+          <aside class="sidebar">
+            <div class="search-box">
+              <span>Search</span>
+              <span class="search-icon">⌕</span>
+            </div>
+
+            <nav class="side-nav">
+              <div class="nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span>Student Dashboard</span>
+              </div>
+
+              <div class="nav-group">
+                <button class="nav-item profile-trigger" type="button" aria-expanded="false">
+                  <span class="nav-leading">
+                    <span class="nav-icon">◉</span>
+                    <span>Profile</span>
+                  </span>
+                  <span class="dropdown-chevron">⌃</span>
+                </button>
+
+                <div class="submenu" aria-label="Profile menu">
+                  <a href="#" class="sub-item">Profile Details</a>
+                  <a href="#" class="sub-item">Student Hold</a>
+                  <a href="#enrollment-assessment" class="sub-item enrollment-link">Enrollment Assessment Form</a>
+                  <a href="#" class="sub-item">Apply Withdrawal</a>
+                  <a href="#" class="sub-item">Attendance</a>
+                  <a href="#" class="sub-item">Curriculum Progression</a>
+                  <a href="#" class="sub-item">Grades</a>
+                  <a href="#" class="sub-item">Evaluation</a>
+                  <a href="#" class="sub-item">Class Schedule</a>
+                  <a href="#" class="sub-item">Program Shift</a>
+                </div>
+              </div>
+
+              <div class="nav-item">
+                <span class="nav-icon">◁</span>
+                <span>Enrollment</span>
+              </div>
+              <div class="nav-item">
+                <span class="nav-icon">◐</span>
+                <span>My Payments</span>
+              </div>
+              <div class="nav-item">
+                <span class="nav-icon">⌁</span>
+                <span>Services</span>
+              </div>
+            </nav>
+
+            <div class="last-login">
+              <span>Last Login</span>
+              <strong>23 Sep 2026 11:20 PM</strong>
+            </div>
+          </aside>
+
+          <main class="content-area dashboard-home">
+            <div class="greeting-bar">
+              <div class="welcome-copy">
+                <span class="weather-icon">☀</span>
+                <span class="greeting-label">Good Evening</span>
+              </div>
+              <div class="action-icon">⚙</div>
+            </div>
+
+            <div class="dashboard-grid">
+              <section class="panel attendance-panel">
+                <div class="panel-head">
+                  <span>Attendance</span>
+                  <button class="panel-button">View All</button>
+                </div>
+
+                <div class="attendance-ring-wrap">
+                  <div class="attendance-ring">
+                    <div class="ring-value">0%</div>
+                  </div>
+                  <div class="ring-scale">
+                    <span>0</span>
+                    <span>100</span>
+                  </div>
+                  <div class="ring-caption">Overall Attendance</div>
+                </div>
+
+                <div class="progress-row">
+                  <span>TTMN04H - Travel Agency Operations and Management</span>
+                  <span class="progress-value">100%</span>
+                </div>
+                <div class="progress-bar">
+                  <span></span>
+                </div>
+              </section>
+
+              <section class="panel schedule-panel">
+                <div class="panel-head">
+                  <span>Today's Schedule</span>
+                  <button class="panel-button">View All</button>
+                </div>
+                <div class="schedule-empty"></div>
+              </section>
+            </div>
+
+            <div class="dashboard-grid lower-grid">
+              <section class="panel course-panel">
+                <div class="panel-head">
+                  <span>Enrolled Courses</span>
+                  <button class="panel-icon">⟳</button>
+                </div>
+
+                <div class="course-list">
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">NSTP02N</a>
+                    <div class="course-name">National Service Training Program 2 (CWTS)</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">PHFN04A</a>
+                    <div class="course-name">Physical Activities Towards Health and Fitness 4</div>
+                    <div class="course-credits">Credits: 2</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">LITC01C</a>
+                    <div class="course-name">Living in the IT Era</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">ACCNF01B</a>
+                    <div class="course-name">Fundamentals of Accounting and Business Finance</div>
+                    <div class="course-credits">Credits: 4</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">MGTN11B</a>
+                    <div class="course-name">Operations Management</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">TTMN06H</a>
+                    <div class="course-name">Airline Business</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">TTMN04H</a>
+                    <div class="course-name">Travel Agency Operations and Management</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+
+                  <div class="course-item">
+                    <div class="course-badge red">▣</div>
+                    <a class="course-title" href="https://mylycean.lpu.edu.ph/StudentDashboard#">HMNL03H</a>
+                    <div class="course-name">Front Office Operations</div>
+                    <div class="course-credits">Credits: 3</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel payment-panel">
+                <div class="panel-head">
+                  <span>My Payments</span>
+                  <button class="panel-button secondary">Go to Payment</button>
+                </div>
+
+                <div class="payment-tabs">
+                  <span class="tab active">Upcoming Payments</span>
+                  <span class="tab">Overdue Payments</span>
+                </div>
+
+                <div class="payment-card">
+                  <div class="payment-item">
+                    <div class="payment-title">Payment 1</div>
+                    <div class="payment-meta">
+                      <span>Date Minimum: <strong>08/17/2026</strong></span>
+                      <span>Amount Due: <strong class="paid">PAID</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="payment-item">
+                    <div class="payment-title">Payment 2</div>
+                    <div class="payment-meta">
+                      <span>Date Minimum: <strong>09/16/2026</strong></span>
+                      <span>Amount Due: <strong>₱24,201.00</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="payment-item">
+                    <div class="payment-title">Payment 3</div>
+                    <div class="payment-meta">
+                      <span>Date Minimum: <strong>10/16/2026</strong></span>
+                      <span>Amount Due: <strong>₱22,136.00</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="payment-item">
+                    <div class="payment-title">Payment 4</div>
+                    <div class="payment-meta">
+                      <span>Date Minimum: <strong>11/13/2026</strong></span>
+                      <span>Amount Due: <strong>₱22,136.00</strong></span>
+                    </div>
+                  </div>
+
+                  <button class="ask-button">ASK AI</button>
+                </div>
+              </section>
+            </div>
+          </main>
+
+          <main class="content-area enrollment-page" id="enrollment-assessment" hidden>
+            <section class="enlistment-panel">
+              <div class="enlistment-heading">
+                <div class="enlistment-title">
+                  <span class="page-icon">▣</span>
+                  <span>Enlistment</span>
+                </div>
+                <button class="collapse-button" type="button" aria-label="Collapse enlistment panel">⌃</button>
+              </div>
+
+              <div class="enlistment-summary">
+                <div class="academic-session">
+                  <span class="summary-label">Academic Session</span>
+                  <div class="session-select">2026-2027 Semester 1 <span>⌄</span></div>
+                </div>
+
+                <div class="program-details">
+                  <div>
+                    <span>Program:</span>
+                    <strong>Bachelor of Science in International Tourism Management</strong>
+                  </div>
+                  <div>
+                    <span>Campus:</span>
+                    <strong>Manila</strong>
+                  </div>
+                </div>
+
+                <div class="program-details right-details">
+                  <div>
+                    <span>Learning Modality:</span>
+                    <strong>Regular</strong>
+                  </div>
+                  <div>
+                    <span>Curriculum:</span>
+                    <strong>CITHM-Bachelor of Science-Bachelor of Science in International Tourism Management-2223</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-toolbar">
+                <input type="search" placeholder="Search" aria-label="Search enlistment courses" />
+                <button type="button" aria-label="Toggle table view">◉</button>
+                <button type="button" aria-label="Choose columns">▦⌄</button>
+                <button type="button" aria-label="Download enlistment">⌄</button>
+              </div>
+
+              <div class="enlistment-table-wrap">
+                <table class="enlistment-table">
+                  <thead>
+                    <tr>
+                      <th>Course Code</th>
+                      <th>Course Name</th>
+                      <th>Course Type</th>
+                      <th>Units</th>
+                      <th>Section</th>
+                      <th>Semester</th>
+                      <th>Batch</th>
+                      <th>Teacher</th>
+                      <th>Registration Type</th>
+                      <th>Approval Status</th>
+                      <th>Exam Registration Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>THMN07H</td><td>Tourism and Hospitality Marketing</td><td>Lecture</td><td>3</td><td>HT304ITM</td><td>Y3S1</td><td>-</td><td>Sheila Dawang</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>THMN17H</td><td>Applied Economics</td><td>Lecture</td><td>3</td><td>HT305ITM</td><td>Y3S1</td><td>-</td><td>Rhenz Frederick Haldos</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>THMN14H</td><td>Research in Tourism and Hospitality 1</td><td>Lecture</td><td>3</td><td>H304CAKO</td><td>Y3S1</td><td>-</td><td>Silvia Ambag</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>THMN06H</td><td>Legal Aspects in Tourism and Hospitality</td><td>Lecture</td><td>3</td><td>HT310ITM</td><td>Y3S1</td><td>-</td><td>Mark Gawaine Lim</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>TTMN09H</td><td>Sustainable Tourism</td><td>Lecture</td><td>3</td><td>HT305ITM</td><td>Y3S1</td><td>-</td><td>Mitzi Mae Mitra</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>TTMN07H</td><td>International Fares and Ticketing</td><td>Lecture</td><td>3</td><td>HT301ITM</td><td>Y3S1</td><td>-</td><td>Mary Jane Cortes</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>TTMN05H</td><td>Tour Operations and Management</td><td>Lecture</td><td>3</td><td>HT305ITM</td><td>Y3S1</td><td>-</td><td>Mary Jane Cortes</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                    <tr><td>THML13H</td><td>Applied Business Tools and Technologies</td><td>Lecture/Laboratory</td><td>3</td><td>HT302ITM</td><td>Y3S1</td><td>-</td><td>Joannes Alonsagay</td><td>REGULAR</td><td><span class="status approved">Approved</span></td><td><span class="status yes">YES</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-footer">
+                <span>Showing 1 to 8 of 8 rows</span>
+                <button type="button">10⌄</button>
+                <span>rows per page</span>
+              </div>
+
+              <div class="enlistment-actions">
+                <button type="button" class="enlistment-slip-button">Enlistment Slip</button>
+                <button type="button">View Study Load</button>
+              </div>
+            </section>
+          </main>
+        </div>
+
+        <footer class="bottom-bar">
+          <div class="bottom-left">© MasterSoft ERP Solutions Pvt. Ltd.</div>
+          <div class="bottom-right">Privacy Policy | Terms &amp; Conditions</div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="assessment-modal" aria-hidden="true">
+      <div class="assessment-modal-backdrop"></div>
+      <section class="assessment-modal-dialog" role="dialog" aria-modal="true" aria-label="Enrollment assessment form">
+        <button class="assessment-modal-close" type="button" aria-label="Close enrollment assessment form">&times;</button>
+        <img src="enrollment-assessment-form.jpg" alt="Enrollment assessment form" />
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
