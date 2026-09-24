@@ -32,6 +32,7 @@ html, body {
   background: var(--page-bg);
   font-family: "Roboto", sans-serif;
   color: var(--text);
+  overflow-x: hidden;
 }
 
 body {
@@ -1138,12 +1139,27 @@ input::placeholder {
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
+
+  .content-area,
+  .enrollment-page {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 560px) {
+  .login-layout {
+    min-height: auto;
+  }
+
+  .photo-panel {
+    min-height: 220px;
+  }
+
   .brand-header {
     gap: 10px;
     margin-bottom: 14px;
+    padding-top: 0;
   }
 
   .crest {
@@ -1153,7 +1169,8 @@ input::placeholder {
 
   .brand-label {
     font-size: 0.88rem;
-    max-width: 200px;
+    max-width: 190px;
+    white-space: normal;
   }
 
   .login-panel {
@@ -1164,6 +1181,7 @@ input::placeholder {
   .login-card {
     padding-left: 14px;
     padding-right: 14px;
+    width: 100%;
   }
 
   .captcha-row {
@@ -1176,12 +1194,32 @@ input::placeholder {
   }
 
   .system-bar {
+    min-height: 34px;
+    height: auto;
     padding: 0 10px;
     font-size: 10px;
+    gap: 8px;
+  }
+
+  .system-right {
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .topbar {
     padding: 10px 12px;
+    min-height: 62px;
+  }
+
+  .topbar-left,
+  .topbar-right {
+    gap: 7px;
+  }
+
+  .mini-crest {
+    width: 34px;
+    height: 34px;
   }
 
   .brand-name {
@@ -1190,6 +1228,10 @@ input::placeholder {
 
   .user-name {
     font-size: 0.62rem;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .user-id {
@@ -1197,8 +1239,183 @@ input::placeholder {
   }
 
   .content-area {
+    min-width: 0;
+    width: 100%;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .sidebar {
+    padding: 8px 8px 0;
+  }
+
+  .search-box {
+    margin-top: 2px;
+  }
+
+  .side-nav {
+    gap: 2px;
+  }
+
+  .nav-item {
+    min-height: 40px;
+    height: auto;
+    font-size: 0.88rem;
+  }
+
+  .sub-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 0.84rem;
+  }
+
+  .last-login {
+    padding: 12px 8px 14px;
+  }
+
+  .greeting-bar {
+    min-height: 58px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .greeting-label {
+    font-size: 0.95rem;
+  }
+
+  .dashboard-grid {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .panel {
+    min-width: 0;
+    padding: 11px 12px 14px;
+  }
+
+  .panel-head {
+    gap: 8px;
+  }
+
+  .panel-button {
+    padding: 6px 8px;
+    font-size: 0.66rem;
+  }
+
+  .course-panel,
+  .payment-panel {
+    min-height: 300px;
+  }
+
+  .course-list {
+    padding-right: 2px;
+  }
+
+  .course-item {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .course-badge {
+    width: 30px;
+    height: 30px;
+  }
+
+  .course-title,
+  .course-name {
+    overflow-wrap: anywhere;
+  }
+
+  .course-title {
+    font-size: 0.86rem;
+  }
+
+  .course-name {
+    font-size: 0.8rem;
+  }
+
+  .course-credits {
+    font-size: 0.7rem;
+  }
+
+  .payment-card {
+    padding: 14px 10px 12px;
+  }
+
+  .payment-title {
+    font-size: 0.94rem;
+  }
+
+  .payment-meta {
+    font-size: 0.72rem;
+  }
+
+  .enrollment-page {
+    padding: 10px;
+  }
+
+  .enlistment-panel {
+    min-height: auto;
+  }
+
+  .enlistment-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .academic-session,
+  .program-details,
+  .right-details {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .table-toolbar {
+    justify-content: stretch;
+    padding-top: 4px;
+  }
+
+  .table-toolbar input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .enlistment-table-wrap {
+    margin-left: 6px;
+    margin-right: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-footer {
+    flex-wrap: wrap;
+  }
+
+  .enlistment-actions {
+    margin-bottom: 0;
+  }
+
+  .enlistment-actions button {
+    min-height: 38px;
+    min-width: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .assessment-modal {
+    padding: 8px;
+  }
+
+  .assessment-modal-dialog {
+    max-width: 100%;
+    max-height: 96vh;
+    padding: 6px;
+  }
+
+  .assessment-modal-close {
+    top: 10px;
+    right: 10px;
   }
 
   .course-item {
@@ -1208,5 +1425,24 @@ input::placeholder {
   .course-name,
   .course-credits {
     grid-column: 2;
+  }
+}
+
+@media (max-width: 380px) {
+  .topbar-right .user-icon-wrap {
+    display: none;
+  }
+
+  .user-name {
+    max-width: 135px;
+  }
+
+  .brand-label {
+    max-width: 170px;
+    font-size: 0.82rem;
+  }
+
+  .payment-meta {
+    font-size: 0.68rem;
   }
 }
