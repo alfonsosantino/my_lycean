@@ -26,12 +26,12 @@
                 <h1>Let's Get Started</h1>
                 <p class="login-subtitle">Sign in to our ERP</p>
 
-                <form class="login-form">
+                <form class="login-form" novalidate>
                   <label class="field-group">
                     <span class="field-label">Username / Email</span>
                     <div class="input-box">
                       <span class="input-icon" aria-hidden="true">👤</span>
-                      <input type="text" placeholder="Enter Username" aria-label="Username or email" />
+                      <input type="text" placeholder="Enter Username" aria-label="Username or email" required />
                     </div>
                   </label>
 
@@ -40,11 +40,20 @@
                       <span class="field-label">Password/OTP</span>
                       <a href="#">Trouble in Login?</a>
                     </div>
-                    <div class="input-box">
+                    <div class="input-box password-wrap">
                       <span class="input-icon" aria-hidden="true">🔒</span>
-                      <input type="password" placeholder="Enter Password" aria-label="Password or OTP" />
+                      <input id="password-input" type="password" placeholder="Enter Password" aria-label="Password or OTP" required />
+                      <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button>
                     </div>
                   </label>
+
+                  <div class="form-row">
+                    <label class="remember-me">
+                      <input type="checkbox" />
+                      <span>Remember me</span>
+                    </label>
+                    <span class="demo-tip">Demo access available</span>
+                  </div>
 
                   <div class="captcha-row">
                     <label class="human-check">
@@ -58,6 +67,7 @@
                     </div>
                   </div>
 
+                  <p class="form-status" aria-live="polite" hidden></p>
                   <button type="submit" class="sign-in">SIGN IN</button>
                 </form>
               </div>
@@ -106,10 +116,10 @@
             </div>
 
             <nav class="side-nav">
-              <div class="nav-item active">
+              <button class="nav-item active dashboard-trigger" type="button" data-target="dashboard-home">
                 <span class="nav-icon">⌂</span>
                 <span>Student Dashboard</span>
-              </div>
+              </button>
 
               <div class="nav-group">
                 <button class="nav-item profile-trigger" type="button" aria-expanded="false">
@@ -134,18 +144,18 @@
                 </div>
               </div>
 
-              <div class="nav-item">
+              <button class="nav-item enrollment-trigger" type="button" data-target="enrollment-assessment">
                 <span class="nav-icon">◁</span>
                 <span>Enrollment</span>
-              </div>
-              <div class="nav-item">
+              </button>
+              <button class="nav-item payments-trigger" type="button" data-target="payments-page">
                 <span class="nav-icon">◐</span>
                 <span>My Payments</span>
-              </div>
-              <div class="nav-item">
+              </button>
+              <button class="nav-item" type="button">
                 <span class="nav-icon">⌁</span>
                 <span>Services</span>
-              </div>
+              </button>
             </nav>
 
             <div class="last-login">
@@ -154,7 +164,7 @@
             </div>
           </aside>
 
-          <main class="content-area dashboard-home">
+          <main class="content-area dashboard-home" id="dashboard-home">
             <div class="greeting-bar">
               <div class="welcome-copy">
                 <span class="weather-icon">☀</span>
@@ -314,6 +324,1225 @@
               </section>
             </div>
           </main>
+
+          <main class="content-area payments-page" id="payments-page" hidden>
+            <section class="payments-main">
+                <header class="payments-topbar">
+                  <div class="payments-tray">
+                    <span class="tray-icon">🔔</span>
+                  </div>
+                  <div class="payments-user">
+                    <span class="payments-user-name">CURT VINZENT ALACAPA BERNAL</span>
+                    <span class="payments-user-id">2024-01-1619</span>
+                  </div>
+                </header>
+
+                <div class="payments-cards">
+                  <div class="stat-card red-card">
+                    <div class="stat-icon">▣</div>
+                    <div class="stat-value">₱ 24,201.00</div>
+                    <div class="stat-label">Total Receivable</div>
+                  </div>
+                  <div class="stat-card green-card">
+                    <div class="stat-icon">▣</div>
+                    <div class="stat-value">₱ 17,000.00</div>
+                    <div class="stat-label">Paid Amount</div>
+                  </div>
+                  <div class="stat-card blue-card">
+                    <div class="stat-icon">▣</div>
+                    <div class="stat-value">₱ 0.00</div>
+                    <div class="stat-label">Scholarship Amount</div>
+                  </div>
+                  <div class="stat-card pale-card">
+                    <div class="stat-icon">▣</div>
+                    <div class="stat-value">₱ 7,201.00</div>
+                    <div class="stat-label">Balance Amount</div>
+                  </div>
+                  <div class="stat-card dark-card">
+                    <div class="stat-icon">▣</div>
+                    <div class="stat-value">₱ 0.00</div>
+                    <div class="stat-label">Excess Amount</div>
+                  </div>
+                </div>
+
+                <div class="payments-content-header">
+                  <div class="payments-heading">
+                    <span class="heading-icon">◫</span>
+                    <span>My Payments</span>
+                  </div>
+                  <button class="payment-plan-button" type="button">Payment Plan</button>
+                </div>
+
+                <div class="payments-tabs">
+                  <button class="tab-item active" type="button">Payments</button>
+                  <button class="tab-item" type="button">History</button>
+                </div>
+
+                <div class="payment-table-section">
+                  <div class="section-title">Overdue Payments</div>
+
+                  <div class="payment-invoice-card">
+                    <div class="invoice-header">Payment 1</div>
+                    <div class="invoice-grid">
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Receipt Type:</span>
+                          <span class="row-value">Assessment Fee</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Total Payable:</span>
+                          <span class="row-value">₱ 24,201.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Due Date:</span>
+                          <span class="row-value">08/17/2026</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Semester:</span>
+                          <span class="row-value">V3S1</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Paid Amount:</span>
+                          <span class="row-value">₱ 24,201.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Balance Amount:</span>
+                          <span class="row-value">₱ 0.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">% Percentage:</span>
+                          <span class="row-value">25</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Program:</span>
+                          <span class="row-value">BSITM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="payment-invoice-card">
+                    <div class="invoice-header">Payment 2</div>
+                    <div class="invoice-grid">
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Receipt Type:</span>
+                          <span class="row-value">Assessment Fee</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Total Payable:</span>
+                          <span class="row-value">₱ 24,201.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Due Date:</span>
+                          <span class="row-value">09/16/2026</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Semester:</span>
+                          <span class="row-value">V3S1</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Paid Amount:</span>
+                          <span class="row-value">₱ 0.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Balance Amount:</span>
+                          <span class="row-value">₱ 24,201.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">% Percentage:</span>
+                          <span class="row-value">25</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Program:</span>
+                          <span class="row-value">BSITM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="payment-action-row">
+                  <button type="button" class="primary-payment-action">Proceed to Payment</button>
+                  <button type="button" class="secondary-payment-action">Cancel</button>
+                </div>
+
+                <div class="payment-flow-panel" id="payment-flow-panel" hidden>
+                  <div class="payment-flow-header">
+                    <span class="payment-flow-icon">◫</span>
+                    <span>Payment Details</span>
+                  </div>
+
+                  <div class="payment-flow-block">
+                    <div class="payment-flow-row payment-flow-row-head">
+                      <span>Payments</span>
+                      <span>Amount</span>
+                    </div>
+
+                    <div class="payment-flow-row paid-row">
+                      <span>
+                        Installment 1
+                        <span class="status-pill paid">Paid</span>
+                      </span>
+                      <span>₱ 2,201.00</span>
+                    </div>
+                    <div class="payment-flow-row">
+                      <span>Installment 2</span>
+                      <span>₱ 24,201.00</span>
+                    </div>
+                    <div class="payment-flow-row">
+                      <span>Installment 3</span>
+                      <span>₱ 22,136.00</span>
+                    </div>
+                    <div class="payment-flow-row">
+                      <span>Installment 4</span>
+                      <span>₱ 22,136.00</span>
+                    </div>
+
+                    <div class="payment-flow-row total-row">
+                      <span>Total Payable Amount:</span>
+                      <span class="installment-total-amount">₱ 2,201.00</span>
+                    </div>
+                  </div>
+
+                  <div class="payment-flow-block">
+                    <div class="payment-flow-row payment-flow-row-head">
+                      <span>Payment</span>
+                    </div>
+
+                    <div class="payment-form-inner">
+                      <label class="gateway-field installment-field">
+                        <span>Select Installment</span>
+                        <select id="installment-select">
+                          <option value="2201">Installment 1 (Paid)</option>
+                          <option value="24201">Installment 2 - ₱ 24,201.00</option>
+                          <option value="22136">Installment 3 - ₱ 22,136.00</option>
+                          <option value="22136b">Installment 4 - ₱ 22,136.00</option>
+                        </select>
+                      </label>
+                      <div class="payment-method-switch">
+                        <button type="button" class="payment-mode-tab">Pay at Campus</button>
+                        <button type="button" class="payment-mode-tab active">Online</button>
+                      </div>
+
+                      <div class="payment-total-row">
+                        <span>Total Amount:</span>
+                        <strong class="payment-total-value">₱ 2,201.00</strong>
+                      </div>
+
+                      <label class="receipt-toggle">
+                        <input type="checkbox" />
+                        <span>Do you want the Original Receipt?</span>
+                      </label>
+
+                      <label class="gateway-field">
+                        <span>* Payment Gateway</span>
+                        <select>
+                          <option>Please Select</option>
+                          <option>GCash</option>
+                          <option>PayMaya</option>
+                          <option>Bank Transfer</option>
+                        </select>
+                      </label>
+
+                      <button type="button" class="payment-submit-button">Pay</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="payment-table-section upcoming-section">
+                  <div class="section-title">Upcoming Payments</div>
+
+                  <div class="payment-invoice-card simple-card">
+                    <div class="invoice-header">Payment 3</div>
+                    <div class="invoice-grid">
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Receipt Type:</span>
+                          <span class="row-value">Assessment Fee</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Total Payable:</span>
+                          <span class="row-value">₱ 22,136.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Semester:</span>
+                          <span class="row-value">V3S1</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Paid Amount:</span>
+                          <span class="row-value">₱ 0.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Balance Amount:</span>
+                          <span class="row-value">₱ 22,136.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">% Percentage:</span>
+                          <span class="row-value">25</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="payment-invoice-card simple-card">
+                    <div class="invoice-header">Payment 4</div>
+                    <div class="invoice-grid">
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Receipt Type:</span>
+                          <span class="row-value">Assessment Fee</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Total Payable:</span>
+                          <span class="row-value">₱ 22,136.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Semester:</span>
+                          <span class="row-value">V3S1</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">Paid Amount:</span>
+                          <span class="row-value">₱ 0.00</span>
+                        </div>
+                      </div>
+
+                      <div class="invoice-column">
+                        <div class="invoice-row">
+                          <span class="row-label">Balance Amount:</span>
+                          <span class="row-value">₱ 22,136.00</span>
+                        </div>
+                        <div class="invoice-row">
+                          <span class="row-label">% Percentage:</span>
+                          <span class="row-value">25</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="payment-table-panel">
+                  <div class="payment-table-header">
+                    <span class="table-header-icon">▣</span>
+                    <span>Payment</span>
+                  </div>
+
+                  <div class="payment-table-wrap">
+                    <table class="payment-detail-table">
+                      <thead>
+                        <tr>
+                          <th>Payment Date</th>
+                          <th>Payment Mode</th>
+                          <th>Amount</th>
+                          <th>Payment Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </main>
+
+            <main class="content-area smartpay-page" id="smartpay-page" hidden>
+              <div class="smartpay-shell">
+                <div class="smartpay-header">
+                  <div class="smartpay-brand"><span class="smart">Smart</span><span class="pay">Pay</span></div>
+                </div>
+
+                <div class="smartpay-topline">
+                  <div>Paying for <strong>Lyceum of the Philippines University Manila</strong> : RFC-Live</div>
+                  <div class="smartpay-reference-badge">Reference Number <strong id="payment-reference">P000198049</strong></div>
+                </div>
+
+                <div class="smartpay-content">
+                  <h2 class="smartpay-title">Payment</h2>
+
+                  <div class="smartpay-panel">
+                    <div class="smartpay-methods">
+                      <div class="smartpay-method-header">
+                        <span>E-Wallets</span>
+                        <span class="caret">⌃</span>
+                      </div>
+
+                      <div class="smartpay-option">
+                        <div class="wallet-label">
+                          <span class="wallet-icon">IP</span>
+                          <span>INSTAPAY</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="smartpay-summary">
+                      <div class="summary-row">
+                        <span>RFC-Live</span>
+                        <strong id="smartpay-amount">₱ 2,201.00</strong>
+                      </div>
+                      <div class="summary-row">
+                        <span>Channel Fee</span>
+                        <strong>₱ 0.00</strong>
+                      </div>
+                      <div class="summary-row">
+                        <span>Total</span>
+                        <strong id="smartpay-total">₱ 2,201.00</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="smartpay-form">
+                    <div class="form-field">
+                      <label>Name</label>
+                      <input type="text" value="CURT VINZENT ALACAPA BERNA" aria-label="Name" />
+                    </div>
+
+                    <div class="form-field">
+                      <label>Email Address</label>
+                      <input type="email" value="curtvinzentbernal@gmail.com" aria-label="Email Address" />
+                    </div>
+                  </div>
+
+                  <button type="button" class="smartpay-button smartpay-continue">Continue to payment</button>
+                </div>
+
+                <div class="smartpay-footer">© 2018-2025 Smartpay Philippines Inc.</div>
+              </div>
+            </main>
+
+            <main class="content-area payment-qr-page" id="payment-qr-page" hidden>
+              <div class="payment-qr-shell">
+                <div class="payment-qr-brand"><span class="smart">Smart</span><span class="pay">Pay</span></div>
+
+                <div class="qr-panel">
+                  <div class="qr-block" aria-label="QR code for payment">
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                    <span class="qr-cell dark"></span>
+                  </div>
+
+                  <div class="qr-label">
+                    <strong>Payment pending for reference</strong>
+                    <strong id="qr-reference">number P000198049</strong>
+                  </div>
+
+                  <div class="qr-note">Scan this QR code directly, or take a screenshot to upload into your QRPH-compatible app.</div>
+                  <div class="qr-expiry">Note: Please complete the payment before 2026-10-08 03:51 PM to avoid transaction expiry.</div>
+                </div>
+
+                <div class="smartpay-footer-note">© 2018-2025 Smartpay Philippines Inc.</div>
+              </div>
+            </main>
 
           <main class="content-area enrollment-page" id="enrollment-assessment" hidden>
             <section class="enlistment-panel">
