@@ -72,8 +72,70 @@ document.querySelectorAll('[data-target]').forEach((item) => {
   });
 });
 
+const paymentFlowRows = [...document.querySelectorAll('.payment-flow-row[data-installment]')];
+let paidInstallmentValue = '2201';
+
+function getInstallmentKeyFromSelection(selection) {
+  const rawValue = typeof selection === 'string' || typeof selection === 'number'
+    ? String(selection)
+    : selection?.value || '';
+
+  const valueMap = {
+    '2201': '1',
+    '24201': '2',
+    '22136': '3',
+    '22136b': '4',
+  };
+
+  if (rawValue && valueMap[rawValue]) {
+    return valueMap[rawValue];
+  }
+
+  const text = selection?.textContent || selection?.value || rawValue || 'Installment 1';
+  const match = String(text).match(/Installment\s*(\d+)/i);
+
+  if (match && match[1]) return match[1];
+
+  const numericMatch = String(text).match(/\d+/);
+  return numericMatch ? String(numericMatch[0]) : '1';
+}
+
+function updatePaymentRowsState(selectedValue = paidInstallmentValue) {
+  const normalizedValue = String(selectedValue || '1');
+
+  paymentFlowRows.forEach((row) => {
+    const rowValue = String(row.dataset.installment || '');
+    const isPaid = rowValue === normalizedValue;
+    const label = row.firstElementChild;
+    const amount = row.lastElementChild;
+
+    row.classList.toggle('paid-row', isPaid);
+
+    if (label) {
+      if (isPaid) {
+        label.innerHTML = `Installment ${rowValue}<span class="status-pill paid">Paid</span>`;
+      } else {
+        label.innerHTML = `Installment ${rowValue}`;
+      }
+    }
+
+    if (amount) {
+      amount.textContent = isPaid ? '—' : (row.dataset.amount || amount.textContent);
+    }
+  });
+}
+
+function markInstallmentPaid(selection) {
+  paidInstallmentValue = getInstallmentKeyFromSelection(selection || { textContent: 'Installment 1', value: '2201' });
+  updatePaymentRowsState(paidInstallmentValue);
+}
+
 document.querySelector('.payment-qr-back')?.addEventListener('click', function () {
-  showPage('smartpay-page');
+  const selected = installmentSelect?.selectedOptions?.[0];
+
+  markInstallmentPaid(selected || { textContent: 'Installment 1', value: '2201' });
+  showPage('payments-page');
+  togglePaymentFlow(true);
 });
 
 document.querySelector('.profile-trigger')?.addEventListener('click', function () {
@@ -157,6 +219,7 @@ paymentSubmitButton?.addEventListener('click', function () {
   if (qrAmount) qrAmount.textContent = amountText;
   if (qrInstallment) qrInstallment.textContent = installmentText;
 
+  markInstallmentPaid(selected);
   showPage('smartpay-page');
 });
 

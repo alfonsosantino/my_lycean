@@ -491,22 +491,22 @@
                       <span>Amount</span>
                     </div>
 
-                    <div class="payment-flow-row paid-row">
+                    <div class="payment-flow-row paid-row" data-installment="1" data-amount="₱ 2,201.00">
                       <span>
                         Installment 1
                         <span class="status-pill paid">Paid</span>
                       </span>
-                      <span>₱ 2,201.00</span>
+                      <span>—</span>
                     </div>
-                    <div class="payment-flow-row">
+                    <div class="payment-flow-row" data-installment="2" data-amount="₱ 24,201.00">
                       <span>Installment 2</span>
                       <span>₱ 24,201.00</span>
                     </div>
-                    <div class="payment-flow-row">
+                    <div class="payment-flow-row" data-installment="3" data-amount="₱ 22,136.00">
                       <span>Installment 3</span>
                       <span>₱ 22,136.00</span>
                     </div>
-                    <div class="payment-flow-row">
+                    <div class="payment-flow-row" data-installment="4" data-amount="₱ 22,136.00">
                       <span>Installment 4</span>
                       <span>₱ 22,136.00</span>
                     </div>
@@ -1530,6 +1530,8 @@
                     <span class="qr-cell dark"></span>
                     <span class="qr-cell dark"></span>
                   </div>
+
+                  <button type="button" class="payment-qr-back">Back to Merchant</button>
 
                   <div class="qr-label">
                     <strong>Payment pending for reference</strong>
