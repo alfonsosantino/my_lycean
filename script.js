@@ -73,7 +73,7 @@ document.querySelectorAll('[data-target]').forEach((item) => {
 });
 
 const paymentFlowRows = [...document.querySelectorAll('.payment-flow-row[data-installment]')];
-let paidInstallmentValue = '2201';
+let highestPaidInstallment = 1;
 
 function getInstallmentKeyFromSelection(selection) {
   const rawValue = typeof selection === 'string' || typeof selection === 'number'
@@ -100,12 +100,11 @@ function getInstallmentKeyFromSelection(selection) {
   return numericMatch ? String(numericMatch[0]) : '1';
 }
 
-function updatePaymentRowsState(selectedValue = paidInstallmentValue) {
-  const normalizedValue = String(selectedValue || '1');
-
+function updatePaymentRowsState() {
   paymentFlowRows.forEach((row) => {
     const rowValue = String(row.dataset.installment || '');
-    const isPaid = rowValue === normalizedValue;
+    const rowNumber = Number(rowValue) || 0;
+    const isPaid = rowNumber <= highestPaidInstallment;
     const label = row.firstElementChild;
     const amount = row.lastElementChild;
 
@@ -126,8 +125,9 @@ function updatePaymentRowsState(selectedValue = paidInstallmentValue) {
 }
 
 function markInstallmentPaid(selection) {
-  paidInstallmentValue = getInstallmentKeyFromSelection(selection || { textContent: 'Installment 1', value: '2201' });
-  updatePaymentRowsState(paidInstallmentValue);
+  const selectedKey = Number(getInstallmentKeyFromSelection(selection || { textContent: 'Installment 1', value: '2201' })) || 1;
+  highestPaidInstallment = Math.max(highestPaidInstallment, selectedKey);
+  updatePaymentRowsState();
 }
 
 document.querySelector('.payment-qr-back')?.addEventListener('click', function () {
