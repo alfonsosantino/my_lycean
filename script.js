@@ -224,10 +224,61 @@ paymentSubmitButton?.addEventListener('click', function () {
 });
 
 const smartpayContinueButton = document.querySelector('.smartpay-continue');
+const qrExpiryDeadline = document.querySelector('#qr-expiry-deadline');
+const qrExpiryCountdown = document.querySelector('#qr-expiry-countdown');
+const qrPaymentWindowMs = 15 * 60 * 1000;
+let qrPaymentExpiresAt = null;
+let qrExpiryInterval = null;
+
+function formatExpiryDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = date.getHours();
+  const hour12 = String(hours % 12 || 12).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const period = hours >= 12 ? 'PM' : 'AM';
+
+  return `${year}-${month}-${day} ${hour12}:${minutes} ${period}`;
+}
+
+function updateQrExpiry() {
+  if (!qrPaymentExpiresAt || !qrExpiryDeadline || !qrExpiryCountdown) return;
+
+  const remainingMs = Math.max(0, qrPaymentExpiresAt - Date.now());
+  const totalSeconds = Math.ceil(remainingMs / 1000);
+  const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+
+  qrExpiryDeadline.dateTime = qrPaymentExpiresAt.toISOString();
+  qrExpiryDeadline.textContent = formatExpiryDate(qrPaymentExpiresAt);
+
+  if (remainingMs === 0) {
+    qrExpiryCountdown.textContent = 'This payment has expired.';
+    if (qrExpiryInterval) clearInterval(qrExpiryInterval);
+    qrExpiryInterval = null;
+    return;
+  }
+
+  qrExpiryCountdown.textContent = `Time remaining: ${minutes}:${seconds}.`;
+}
+
+function startQrExpiryCountdown() {
+  if (!qrPaymentExpiresAt) {
+    qrPaymentExpiresAt = new Date(Date.now() + qrPaymentWindowMs);
+  }
+
+  updateQrExpiry();
+  if (!qrExpiryInterval) {
+    qrExpiryInterval = setInterval(updateQrExpiry, 1000);
+  }
+}
+
 smartpayContinueButton?.addEventListener('click', function () {
   const refValue = document.querySelector('#payment-reference')?.textContent || 'P000198049';
   const qrRef = document.querySelector('#qr-reference');
   if (qrRef) qrRef.textContent = refValue;
+  startQrExpiryCountdown();
   showPage('payment-qr-page');
 });
 
